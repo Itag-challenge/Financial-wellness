@@ -13,19 +13,19 @@ export default function Home() {
 
   return (
     <ParallaxProvider>
-      <main className="min-h-screen w-full bg-zinc-900 overflow-x-hidden">
+      <main className="min-h-screen w-full bg-background overflow-x-hidden text-white">
         <HeroSection />
         <FeaturesSection />
 
         {/* Parallax About Section */}
-        <section className="relative py-32 bg-zinc-900">
+        <section className="relative py-32 bg-background">
           <Parallax speed={-10}>
             <div className="max-w-3xl mx-auto px-6 text-center">
-              <h2 className="text-3xl font-bold text-cyan-400 mb-6">About FEHUR Wellness</h2>
-              <p className="text-lg text-zinc-300 mb-4">
+              <h2 className="text-3xl font-bold text-primary mb-6">About FEHUR Wellness</h2>
+              <p className="text-lg text-gray-100 mb-4">
                 FEHUR Wellness is designed to empower you with AI-driven support for your daily life. Whether you need a quick chat, advice, or a productivity boost, our platform is here to help.
               </p>
-              <p className="text-zinc-400">
+              <p className="text-gray-200">
                 Built with modern web technologies for a smooth, engaging experience.
               </p>
             </div>
@@ -33,16 +33,17 @@ export default function Home() {
         </section>
 
         {/* Call to Action */}
-        <section className="relative py-24 bg-zinc-900">
+        <section className="relative py-24 bg-background">
           <Parallax speed={5}>
             <div className="flex flex-col md:flex-row items-center justify-center gap-10">
               <div className="flex-1 flex flex-col items-center mb-8 md:mb-0">
-                <h2 className="text-2xl md:text-3xl font-bold text-cyan-400 mb-6 text-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
                   Ready to get started?
                 </h2>
                 <button
                   onClick={() => router.push("/chat")}
-                  className="px-10 py-4 border border-cyan-400 text-cyan-400 rounded-full text-lg font-semibold shadow-lg hover:bg-cyan-900 hover:text-cyan-200 transition bg-transparent"
+                  className="px-10 py-4 border-2 border-primary text-primary rounded-full text-lg font-semibold shadow-lg hover:bg-accent hover:text-background transition bg-transparent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                  aria-label="Go to Chat"
                 >
                   Go to Chat
                 </button>

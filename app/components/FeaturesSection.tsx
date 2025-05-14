@@ -10,9 +10,9 @@ const FeaturesSection = () => {
               <circle cx="32" cy="32" r="30" stroke="#00ffe7" strokeWidth="4" />
               <rect x="20" y="28" width="24" height="8" rx="2" fill="#00ffe7" />
             </svg>
-            <h2 className="text-xl font-bold mb-2 text-cyan-400">Chat History</h2>
+            <h2 className="text-xl font-bold mb-2 text-cyan-400">Financial aid</h2>
             <p className="text-zinc-300 text-center">
-              Instantly revisit your past conversations. Your chats are always saved and accessible.
+              access to financial aid and resources to help you achieve your goals.
             </p>
           </div>
         </Parallax>
@@ -24,7 +24,7 @@ const FeaturesSection = () => {
             </svg>
             <h2 className="text-xl font-bold mb-2 text-cyan-400">AI-Powered</h2>
             <p className="text-zinc-300 text-center">
-              Get intelligent, context-aware responses tailored to your needs and goals.
+              Get intelligent, context-aware responses tailored to you.
             </p>
           </div>
         </Parallax>
@@ -36,7 +36,7 @@ const FeaturesSection = () => {
             </svg>
             <h2 className="text-xl font-bold mb-2 text-cyan-400">Productivity</h2>
             <p className="text-zinc-300 text-center">
-              Tools and insights to help you stay organized, focused, and well-balanced.
+              insights to help you stay organized, focused, and well-balanced.
             </p>
           </div>
         </Parallax>

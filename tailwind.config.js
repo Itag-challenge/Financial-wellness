@@ -10,27 +10,32 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          background: "var(--background)",
-          foreground: "var(--foreground)",
-          accent: {
-            DEFAULT: "var(--accent)",
-            foreground: "var(--accent-foreground)",
-          },
-          muted: {
-            DEFAULT: "var(--muted)",
-            foreground: "var(--muted-foreground)",
-          },
-          textPrimary: "var(--text-primary)",
-          textSecondary: "var(--text-secondary)",
-          border: "var(--border)",
-          card: {
-            DEFAULT: "var(--card-background)",
-            shadow: "var(--card-shadow)",
-          },
-          input: "var(--input-background)",
+          background: "#191919",
+          foreground: "#FFFFFF",
           primary: {
-            DEFAULT: "var(--primary)",
-            foreground: "var(--primary-foreground)",
+            DEFAULT: "#01ea75",
+            foreground: "#191919",
+          },
+          secondary: {
+            DEFAULT: "#9900fe",
+            foreground: "#FFFFFF",
+          },
+          accent: {
+            DEFAULT: "#FF9900",
+            foreground: "#191919",
+          },
+          alert: {
+            DEFAULT: "#FF0000",
+            foreground: "#FFFFFF",
+          },
+          gray: {
+            50: "#F1F2F4",
+            100: "#E3E6E9",
+            200: "#D0D4DC",
+          },
+          text: {
+            primary: "#FFFFFF",
+            secondary: "#E3E6E9",
           },
         },
         fontFamily: {
@@ -64,4 +69,3 @@ module.exports = {
     },
     plugins: [require("tailwindcss-animate")],
   }
-  
