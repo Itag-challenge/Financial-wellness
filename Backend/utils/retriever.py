@@ -1,5 +1,4 @@
 import numpy as np
-import faiss
 from utils.embedder import get_embedding
 from openai import OpenAI
 from config import OPENAI_API_KEY
@@ -13,7 +12,8 @@ def search_index(index, chunks, query, top_k=5):
 
 def build_prompt(contexts, question):
     context_str = "\n\n".join(contexts)
-    return f"""You are a helpful assistant.Use the below information from a document to answer the user's question. Only answer based on the information provided. If you don’t know the answer, say “I don’t know."
+    return f"""You are a helpful assistant.Use the below information, 
+from a document to answer the user's question. Only answer based on the information provided. If you don’t know the answer, say “I don’t know."
 
 Context:
 {context_str}

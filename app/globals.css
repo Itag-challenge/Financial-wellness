@@ -1,20 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  /* Blockchain-inspired dark gradient background */
+  /* Base colors from HEX codes */
+  --white: #FFFFFF;
+  --black: #191919;
+  --green-primary: #01ea75;
+  --purple-secondary: #9900fe;
+  --orange-confirm: #FF9900;
+  --red-alert: #FF0000;
+  
+  /* Grey tones */
+  --grey-light: #F1F2F4;
+  --grey-static: #E3E6E9;
+  --grey-hover: #D0D4DC;
+
+  /* Default theme (dark) */
   --background: linear-gradient(
     135deg,
     #0f172a 0%,
     #1e293b 40%,
     #2d1a4a 100%
   );
-  --foreground: #e0e7ef;
-
+  --foreground: var(--white);
+  
+  /* Main colors mapped to functional variables */
   --accent: #00ffe7;
   --accent-foreground: #0f172a;
+  --primary: var(--green-primary);
+  --primary-foreground: var(--black);
+  --secondary: var(--purple-secondary);
+  --secondary-foreground: var(--white);
+  --confirm: var(--orange-confirm);
+  --alert: var(--red-alert);
+  
+  /* UI elements */
   --muted: #6b7280;
   --muted-foreground: #a3a3a3;
-  --text-primary: #e0e7ef;
+  --text-primary: var(--white);
   --text-secondary: #7dd3fc;
   --border: #23263a;
 
@@ -22,14 +44,43 @@
   --card-background: rgba(24, 24, 38, 0.92);
   --card-shadow: 0 2px 16px rgba(0, 255, 231, 0.08);
   --input-background: rgba(30, 41, 59, 0.95);
-
-  --primary: #6366f1;
-  --primary-foreground: #fff;
+  
   --radius: 0.75rem;
-
   --font-sans: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Background & text */
+    --background: #F7F8FA;                 /* very light gray */
+    --foreground: #191919;                 /* same as dark mode */
+    --text-primary: #1F2937;               /* dark charcoal */
+    --text-secondary: #4B5563;             /* medium gray */
 
+    /* Borders & cards */
+    --border-color: #E5E7EB;               /* light gray */
+    --card-background: #FFFFFF;            /* pure white cards */
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.05);  /* soft, low-contrast shadow */
+    --input-background: #FFFFFF;           /* white inputs */
+
+    /* Accent & CTAs */
+    --primary: var(--green-primary);       /* keep your brand green */
+    --primary-foreground: var(--black);
+    --secondary: var(--purple-secondary);
+    --confirm: var(--orange-confirm);
+    --alert: var(--red-alert);
+
+    /* Toned-down accent for links */
+    --accent: #0070F3;                     /* a crisp, professional blue */
+    --accent-foreground: #FFFFFF;
+  }
+
+  /* Disable the neon grid in light mode */
+  body::before {
+    background: none;
+  }
+}
+
+/* Dark theme explicit override (when user selects dark) */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: linear-gradient(
@@ -38,13 +89,13 @@
       #1e293b 40%,
       #2d1a4a 100%
     );
-    --foreground: #e0e7ef;
-
+    --foreground: var(--white);
+    
     --accent: #00ffe7;
     --accent-foreground: #0f172a;
     --muted: #6b7280;
     --muted-foreground: #a3a3a3;
-    --text-primary: #e0e7ef;
+    --text-primary: var(--white);
     --text-secondary: #7dd3fc;
     --border: #23263a;
 
@@ -52,9 +103,6 @@
     --card-background: rgba(24, 24, 38, 0.92);
     --card-shadow: 0 2px 16px rgba(0, 255, 231, 0.08);
     --input-background: rgba(30, 41, 59, 0.95);
-
-    --primary: #6366f1;
-    --primary-foreground: #fff;
   }
 }
 
@@ -112,7 +160,7 @@ div[class*="border"] {
   z-index: 10;
 }
 
-/* Neon grid overlay for blockchain vibe */
+/* Neon grid overlay - conditional based on theme */
 body::before {
   content: "";
   position: fixed;
@@ -121,19 +169,63 @@ body::before {
   pointer-events: none;
   background: repeating-linear-gradient(
       90deg,
-      rgba(0,255,231,0.04) 0px,
-      rgba(0,255,231,0.04) 1px,
+      rgba(1, 234, 117, 0.04) 0px,
+      rgba(1, 234, 117, 0.04) 1px,
       transparent 1px,
       transparent 80px
     ),
     repeating-linear-gradient(
       0deg,
-      rgba(0,255,231,0.04) 0px,
-      rgba(0,255,231,0.04) 1px,
+      rgba(1, 234, 117, 0.04) 0px,
+      rgba(1, 234, 117, 0.04) 1px,
       transparent 1px,
       transparent 80px
     );
   opacity: 0.7;
+}
+
+@media (prefers-color-scheme: dark) {
+  body::before {
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(0, 255, 231, 0.04) 0px,
+        rgba(0, 255, 231, 0.04) 1px,
+        transparent 1px,
+        transparent 80px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 231, 0.04) 0px,
+        rgba(0, 255, 231, 0.04) 1px,
+        transparent 1px,
+        transparent 80px
+      );
+  }
+}
+
+/* Button variations based on CTA types */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--white);
+  border-color: var(--secondary);
+}
+
+.btn-confirm {
+  background-color: var(--confirm);
+  color: var(--white);
+  border-color: var(--confirm);
+}
+
+.btn-alert {
+  background-color: var(--alert);
+  color: var(--white);
+  border-color: var(--alert);
 }
 
 /* Tailwind utility classes for global elements */
@@ -151,12 +243,22 @@ h1 {
   font-size: 2.5rem;
   line-height: 2.75rem;
   font-weight: 800;
-  color: var(--text-primary);
-  font-family: var(--font-sans);
+  /* make the text pure white for max contrast */
+  color: var(--white);
+  /* use a gentle glow rather than a heavy blur */
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.8),    /* crisp dark edge */
+    0 2px 8px rgba(0, 255, 231, 0.3); /* subtle neon bloom */
   margin-bottom: 0.5em;
   letter-spacing: 0.01em;
-  text-shadow: 0 2px 16px #00ffe7cc;
 }
+
+@media (prefers-color-scheme: dark) {
+  h1 {
+    text-shadow: 0 2px 16px rgba(0, 255, 231, 0.4);
+  }
+}
+
 h2 {
   font-size: 1.75rem;
   line-height: 2.25rem;

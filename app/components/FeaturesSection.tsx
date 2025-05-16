@@ -24,7 +24,7 @@ const FeaturesSection = () => {
             </svg>
             <h2 className="text-xl font-bold mb-2 text-cyan-400">AI-Powered</h2>
             <p className="text-zinc-300 text-center">
-              Get intelligent, context-aware responses tailored to you.
+              Get intelligent, context-aware responses tailored for you.
             </p>
           </div>
         </Parallax>
