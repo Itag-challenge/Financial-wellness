@@ -9,11 +9,12 @@ import os
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 # new
+#more chn
 # Load and process the PDF once
 #text = extract_text_from_pdf("data/EZ_Living_Furniture.pdf")
 #text = extract_text_from_pdf("data/hackathon.pdf")
 #text = extract_text_from_pdf("data/hackathon-dummy-data.pdf")
-text = extract_text_from_pdf("data\crypto.pdf")
+text = extract_text_from_pdf("data/crypto.pdf")
 splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 chunks = splitter.split_text(text)
 index, _ = create_faiss_index(chunks)
