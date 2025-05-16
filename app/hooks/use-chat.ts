@@ -239,7 +239,7 @@ export function useChat() {
 
  const streamChatResponse = async (prompt: string): Promise<string> => {
   try {
-    const response = await fetch("https://c83fcb6084c2675956e23f3fac1ea3d5.serveo.net/ask", {
+    const response = await fetch("https://931e6ef287fd7d75c5bce8805cf3a084.serveo.net/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
